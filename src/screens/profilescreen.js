@@ -1,6 +1,6 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image, FlatList} from 'react-native';
-
+import {StyleSheet, Text, View, Image, FlatList,Dimensions} from 'react-native';
+const win = Dimensions.get('window');
 const App = () => {
   return (
     <View style={{flex: 1}}>
@@ -88,7 +88,7 @@ const App = () => {
         </View>
         <View style={{width: '100%', height: 1, backgroundColor: 'grey'}} />
         <FlatList
-          numColumns={3}
+          numColumns={2}
           data={[
             {},
             {},
@@ -107,13 +107,14 @@ const App = () => {
             {},
             {},
           ]}
+          contentContainerStyle={{alignItems:"center"}}
           renderItem={item => {
             return (
               <Image
                 style={{
                   margin: 4,
-                  width: 135,
-                  height: 135,
+                  width: 200,
+                  height: 200,
                   // borderRadius: 100,
                   resizeMode: 'contain',
                 }}
@@ -125,6 +126,18 @@ const App = () => {
           }}
         />
       </View>
+
+      <View
+        style={{
+          width: win.width / 5,
+          height: win.height / 9.5,
+          backgroundColor: 'rgb(253,188,32)',
+          position: 'absolute',
+          bottom: win.height / 40,
+          right: win.width / 14,
+          borderRadius: 100,
+        }}
+      />
     </View>
   );
 };
