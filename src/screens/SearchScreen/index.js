@@ -1,18 +1,26 @@
 import React from 'react';
-import {StyleSheet, Text, View, Dimensions,TextInput,FlatList,Image} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Dimensions,
+  TextInput,
+  FlatList,
+  Image,
+} from 'react-native';
 const win = Dimensions.get('window');
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch'
-import { faLinesLeaning } from '@fortawesome/free-solid-svg-icons/'
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {faSearch} from '@fortawesome/free-solid-svg-icons/faSearch';
+import {faLinesLeaning} from '@fortawesome/free-solid-svg-icons/';
 
-const App = () => {
+const SearchScreen = () => {
   return (
     <View style={{flex: 1}}>
       <View
         style={{
           flexDirection: 'row',
           justifyContent: 'space-between',
-          alignItems:"center",
+          alignItems: 'center',
           padding: 20,
         }}>
         <Text
@@ -23,21 +31,20 @@ const App = () => {
           Vidbio
         </Text>
         <FontAwesomeIcon icon={faSearch} size={25} />
-       
       </View>
       <View style={{width: '100%', height: 1, backgroundColor: 'grey'}} />
       <View style={styles.container}>
-      <View style={styles.searchSection}>
-      <FontAwesomeIcon icon={faSearch} size={20} />
-    <TextInput
-        style={styles.input}
-        placeholder="Search VideoLink Here"
-        // onChangeText={(searchString) => {this.setState({searchString})}}
-        underlineColorAndroid="transparent"
-    />
-</View>
+        <View style={styles.searchSection}>
+          <FontAwesomeIcon icon={faSearch} size={20} />
+          <TextInput
+            style={styles.input}
+            placeholder="Search VideoLink Here"
+            // onChangeText={(searchString) => {this.setState({searchString})}}
+            underlineColorAndroid="transparent"
+          />
+        </View>
 
-<FlatList
+        <FlatList
           numColumns={2}
           data={[
             {},
@@ -57,7 +64,7 @@ const App = () => {
             {},
             {},
           ]}
-          contentContainerStyle={{alignItems:"center",marginTop:40}}
+          contentContainerStyle={{alignItems: 'center', marginTop: 40}}
           renderItem={item => {
             return (
               <Image
@@ -75,9 +82,7 @@ const App = () => {
             );
           }}
         />
-        
       </View>
-     
     </View>
   );
 };
@@ -87,24 +92,23 @@ const styles = StyleSheet.create({
     flex: 1,
     // justifyContent: 'center',
     alignItems: 'center',
-
   },
   searchSection: {
-    marginTop:30,
+    marginTop: 30,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#fff',
-    borderWidth:1,borderColor:"black",
-    padding:10,
-    width:"85%",
-    borderRadius:10
-},
-searchIcon: {
+    borderWidth: 1,
+    borderColor: 'black',
     padding: 10,
-    
-},
-input: {
+    width: '85%',
+    borderRadius: 10,
+  },
+  searchIcon: {
+    padding: 10,
+  },
+  input: {
     flex: 1,
     paddingTop: 10,
     paddingRight: 10,
@@ -112,9 +116,8 @@ input: {
     paddingLeft: 0,
     backgroundColor: '#fff',
     color: '#424242',
-    marginLeft:20
-    
-},
+    marginLeft: 20,
+  },
 });
 
-export default App;
+export default SearchScreen;

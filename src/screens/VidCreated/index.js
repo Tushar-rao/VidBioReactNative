@@ -33,7 +33,7 @@ const App = () => {
           marginTop: win.height / 20,
           alignSelf: 'center',
         }}
-        source={require('./assets/pic1.png')}
+        source={require('../../assets/pic1.png')}
       />
       <View style={{marginTop: win.height / 10}}>
         <View style={styles.txtbtn}>

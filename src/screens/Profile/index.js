@@ -1,7 +1,14 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image, FlatList,Dimensions} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  FlatList,
+  Dimensions,
+} from 'react-native';
 const win = Dimensions.get('window');
-const App = () => {
+const Profile = () => {
   return (
     <View style={{flex: 1}}>
       <View
@@ -107,7 +114,7 @@ const App = () => {
             {},
             {},
           ]}
-          contentContainerStyle={{alignItems:"center"}}
+          contentContainerStyle={{alignItems: 'center'}}
           renderItem={item => {
             return (
               <Image
@@ -148,4 +155,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default Profile;

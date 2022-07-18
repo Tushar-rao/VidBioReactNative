@@ -1,9 +1,9 @@
 import React from 'react';
 import {StyleSheet, Text, View, Image, Dimensions} from 'react-native';
-import PrimaryBtn from './src/components/YellowButton';
+import PrimaryBtn from '../../components/YellowButton';
 
 const win = Dimensions.get('window');
-const App = () => {
+function Intro() {
   return (
     <View style={styles.container}>
       <Text
@@ -34,7 +34,7 @@ const App = () => {
           marginTop: win.height / 20,
           alignSelf: 'center',
         }}
-        source={require('./assets/Intro.png')}
+        source={require('../../assets/Intro.png')}
       />
       <View style={{marginTop: win.height / 10}}>
         <PrimaryBtn BtnText={'Get Started'} />
@@ -46,7 +46,7 @@ const App = () => {
       </View>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -73,4 +73,4 @@ const styles = StyleSheet.create({
   btntxt: {color: 'black', fontSize: win.width / 28},
 });
 
-export default App;
+export default Intro;

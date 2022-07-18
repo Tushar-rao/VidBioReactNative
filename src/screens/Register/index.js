@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View, Image, Dimensions} from 'react-native';
 import {TextInput} from 'react-native-gesture-handler';
-import PrimaryBtn from './src/components/YellowButton';
+import PrimaryBtn from '../../components/YellowButton';
 
 const win = Dimensions.get('window');
 const App = () => {
@@ -14,27 +14,21 @@ const App = () => {
           marginTop: win.height / 15,
           fontWeight: '400',
         }}>
-        Login
+        Create Account
       </Text>
       <View>
+        <Text style={styles.txtinputheader}>Full Name</Text>
+        <TextInput style={styles.txtinput} />
         <Text style={styles.txtinputheader}>Email Address</Text>
         <TextInput style={styles.txtinput} />
         <Text style={styles.txtinputheader}>Password</Text>
         <TextInput style={styles.txtinput} />
       </View>
-      <Text
-        style={{
-          fontSize: 16,
-          color: 'rgb(253,188,32)',
-          marginVertical: win.height / 45,
-          fontWeight: 'bold',
-        }}>
-        Forgot Password ?
-      </Text>
+
       <PrimaryBtn
         borderradius={10}
         BtnText={'Create Account'}
-        styling={{alignSelf: 'center'}}
+        styling={{alignSelf: 'center', marginTop: win.height / 25}}
       />
       <View
         style={{
@@ -59,7 +53,7 @@ const App = () => {
         />
       </View>
       <Text style={[styles.txtinputheader, {alignSelf: 'center'}]}>
-        Don't have an account? Create account
+        Already have an account? Login
       </Text>
     </View>
   );

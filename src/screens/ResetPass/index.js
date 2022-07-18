@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View, Image, Dimensions} from 'react-native';
 import {TextInput} from 'react-native-gesture-handler';
-import PrimaryBtn from './src/components/YellowButton';
+import PrimaryBtn from '../../components/YellowButton';
 
 const win = Dimensions.get('window');
 const App = () => {
@@ -15,7 +15,7 @@ const App = () => {
           // marginTop: win.height / 20,
           alignSelf: 'center',
         }}
-        source={require('./assets/forgetpass3.png')}
+        source={require('../../assets/forgetpass3.png')}
       />
       <Text
         style={{

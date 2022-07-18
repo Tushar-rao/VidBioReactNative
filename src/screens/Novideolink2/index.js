@@ -28,8 +28,8 @@ const App = () => {
       <View style={{width: '100%', height: 1, backgroundColor: 'grey'}} />
       <View style={styles.container}>
         <Image
-          style={{width: 300, height: 300, resizeMode: 'contain'}}
-          source={require('./assets/pic2.png')}
+          style={{width: 50, height: 50, resizeMode: 'contain'}}
+          source={require('../../assets/add_icon.png')}
         />
         <Text
           style={{
@@ -39,7 +39,7 @@ const App = () => {
             fontSize: 16,
             marginVertical: 20,
           }}>
-          You dont have any video link , create now by clicking the add button
+          You dont have any video link create some
         </Text>
       </View>
     </View>

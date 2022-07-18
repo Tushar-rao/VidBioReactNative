@@ -1,30 +1,38 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image, TextInput,Dimensions} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TextInput,
+  Dimensions,
+} from 'react-native';
 const win = Dimensions.get('window');
-import PrimaryBtn from './src/components/YellowButton';
+import PrimaryBtn from '../../components/YellowButton';
 
 const App = () => {
   return (
     <View style={styles.container}>
-   
-       
-   <Text
-              style={{
-                color: 'black',
-                fontSize: 28,
-                fontWeight: '400',
-                marginVertical:40,marginTop:100
-                }}>
-             Vidbio
-            </Text>
+      <Text
+        style={{
+          color: 'black',
+          fontSize: 28,
+          fontWeight: '400',
+          marginVertical: 40,
+          marginTop: 100,
+        }}>
+        Vidbio
+      </Text>
 
-          <View>
+      <View>
         <Text style={styles.txtinputheader}>Name</Text>
         <TextInput style={styles.txtinput} />
-       <Text  style={styles.txtinputheader}>Description</Text>
-        <TextInput style={[styles.txtinput,{height:120, textAlignVertical: 'top',}]} />
+        <Text style={styles.txtinputheader}>Description</Text>
+        <TextInput
+          style={[styles.txtinput, {height: 120, textAlignVertical: 'top'}]}
+        />
       </View>
-           
+
       <View
         style={{
           width: win.width / 5,
@@ -36,7 +44,6 @@ const App = () => {
           borderRadius: 100,
         }}
       />
-     
     </View>
   );
 };
@@ -46,8 +53,8 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 20,
     // alignItems:"center"
-
-  },txtinput: {
+  },
+  txtinput: {
     width: '95%',
     backgroundColor: 'rgb(216,214,214)',
     borderRadius: 10,

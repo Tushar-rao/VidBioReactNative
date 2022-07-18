@@ -1,8 +1,14 @@
 import React from 'react';
-import {StyleSheet, Text, View, Dimensions,ImageBackground} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Dimensions,
+  ImageBackground,
+} from 'react-native';
 const win = Dimensions.get('window');
 
-const App = () => {
+const VideoLibraryFeed = () => {
   return (
     <View style={{flex: 1}}>
       <View
@@ -28,28 +34,63 @@ const App = () => {
       </View>
       <View style={{width: '100%', height: 1, backgroundColor: 'grey'}} />
       <View style={styles.container}>
-    
-      <ImageBackground style={{width:win.width,height:win.height/2.2,backgroundColor:"grey",paddingHorizontal:20}}>
-        <View style={{flexDirection:"row",justifyContent:"space-between",marginTop:20}}>
-        <View style={{flexDirection:"row"}}>
-          
-        <View style={{width:50,height:50,borderRadius:40,backgroundColor:"white",marginRight:20}}/>
-        <View style={{width:50,height:50,borderRadius:40,backgroundColor:"white"}}/>
-        </View>
-        <View style={{width:50,height:50,borderRadius:40,backgroundColor:"white"}}/>
-        </View><Text
+        <ImageBackground
           style={{
-            color: 'black',
-            fontSize: 16,
-            bottom:100,position:"absolute",
-            left:30
+            width: win.width,
+            height: win.height / 2.2,
+            backgroundColor: 'grey',
+            paddingHorizontal: 20,
           }}>
-          Video Name
-        </Text>
-        <Text style={{bottom:30,position:"absolute",alignSelf:"center"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit et sed faucibus facilisis augue a dolor sit amet, consectetur adipiscing elit. Elit et sed faucibus facilisis augue a.. View Less
-
-</Text>
-      </ImageBackground>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              marginTop: 20,
+            }}>
+            <View style={{flexDirection: 'row'}}>
+              <View
+                style={{
+                  width: 50,
+                  height: 50,
+                  borderRadius: 40,
+                  backgroundColor: 'white',
+                  marginRight: 20,
+                }}
+              />
+              <View
+                style={{
+                  width: 50,
+                  height: 50,
+                  borderRadius: 40,
+                  backgroundColor: 'white',
+                }}
+              />
+            </View>
+            <View
+              style={{
+                width: 50,
+                height: 50,
+                borderRadius: 40,
+                backgroundColor: 'white',
+              }}
+            />
+          </View>
+          <Text
+            style={{
+              color: 'black',
+              fontSize: 16,
+              bottom: 100,
+              position: 'absolute',
+              left: 30,
+            }}>
+            Video Name
+          </Text>
+          <Text style={{bottom: 30, position: 'absolute', alignSelf: 'center'}}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit et sed
+            faucibus facilisis augue a dolor sit amet, consectetur adipiscing
+            elit. Elit et sed faucibus facilisis augue a.. View Less
+          </Text>
+        </ImageBackground>
       </View>
       <View
         style={{
@@ -68,11 +109,11 @@ const App = () => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop:10,
+    marginTop: 10,
     flex: 1,
     // justifyContent: 'center',
     // alignItems: 'center',
   },
 });
 
-export default App;
+export default VideoLibraryFeed;
