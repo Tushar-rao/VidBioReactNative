@@ -10,9 +10,11 @@ const PrimaryBtn = ({
   BtnText,
   btncolor,
   styling,
+  onclick,
 }) => {
   return (
-    <View
+    <TouchableOpacity
+      onPress={onclick}
       style={[
         {
           width: width ? width : '95%',
@@ -25,7 +27,7 @@ const PrimaryBtn = ({
         styling,
       ]}>
       <Text style={{color: 'black', fontSize: win.width / 28}}>{BtnText}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 export default PrimaryBtn;

@@ -1,7 +1,10 @@
 import React from 'react';
 import {StyleSheet, Text, View, Image} from 'react-native';
+import {AuthContext} from '../../components/AuthContext';
+import PrimaryBtn from '../../components/YellowButton';
 
-const App = () => {
+const NoVideoLink = () => {
+  const {logout} = React.useContext(AuthContext);
   return (
     <View style={{flex: 1}}>
       <View
@@ -41,6 +44,12 @@ const App = () => {
           }}>
           You dont have any video link , create now by clicking the add button
         </Text>
+        <PrimaryBtn
+          borderradius={30}
+          BtnText={'Logout'}
+          styling={{alignSelf: 'center'}}
+          onclick={() => logout()}
+        />
       </View>
     </View>
   );
@@ -54,4 +63,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default NoVideoLink;

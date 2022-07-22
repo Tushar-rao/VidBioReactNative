@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useContext} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
@@ -10,6 +10,7 @@ import {faVideo} from '@fortawesome/free-solid-svg-icons/faVideo';
 import * as Screens from '../Screens';
 import {Routes} from './Routes';
 import {Image} from 'react-native';
+import {AuthContext} from '../components/AuthContext';
 
 const Stack = createStackNavigator();
 const Tabs = createBottomTabNavigator();
@@ -17,6 +18,7 @@ const HomeStack = createStackNavigator();
 const Search = createStackNavigator();
 const Library = createStackNavigator();
 const Profile = createStackNavigator();
+
 function BottomTabStack() {
   return (
     <Tabs.Navigator
@@ -25,10 +27,7 @@ function BottomTabStack() {
         tabBarStyle: {
           elevation: 0,
           backgroundColor: 'white',
-          // borderRadius: 15,
           height: 80,
-          // borderColor: "grey",
-          // borderWidth: 1,
           justifyContent: 'center',
           borderTopColor: 'black',
           padding: 10,
@@ -84,17 +83,25 @@ function BottomTabStack() {
 function AuthStack() {
   return (
     <Stack.Navigator headerMode="none">
+      <Stack.Screen name={Routes.Intro} component={Screens.Intro} />
       <Stack.Screen name={Routes.Login} component={Screens.Login} />
-      {/* <Stack.Screen name={Routes.Home} component={Screens.Intro} /> */}
+      <Stack.Screen name={Routes.Register} component={Screens.Register} />
+      <Stack.Screen name={Routes.ForgetPass} component={Screens.ForgetPass} />
+      <Stack.Screen name={Routes.CheckMail} component={Screens.CheckMail} />
+      <Stack.Screen name={Routes.ResetPass} component={Screens.ResetPass} />
     </Stack.Navigator>
   );
 }
 
 const MainStack = () => {
+  const {userInfo} = useContext(AuthContext);
   return (
     <Stack.Navigator headerMode="none">
-      <Stack.Screen name={'AuthStack'} component={AuthStack} />
-      <Stack.Screen name={'TabStack'} component={BottomTabStack} />
+      {userInfo ? (
+        <Stack.Screen name={'TabStack'} component={BottomTabStack} />
+      ) : (
+        <Stack.Screen name={'AuthStack'} component={AuthStack} />
+      )}
     </Stack.Navigator>
   );
 };
@@ -109,7 +116,7 @@ function RootNavigation() {
 const HomeStackScreen = ({navigation}) => {
   return (
     <HomeStack.Navigator screenOptions={{headerShown: false}}>
-      <HomeStack.Screen name={Routes.Home} component={Screens.Intro} />
+      <HomeStack.Screen name={Routes.Home} component={Screens.NovideoLink} />
     </HomeStack.Navigator>
   );
 };

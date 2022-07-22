@@ -1,9 +1,13 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {StyleSheet, Text, View, Image, Dimensions} from 'react-native';
 import PrimaryBtn from '../../components/YellowButton';
+import {Routes} from '../../RootNavigation/Routes';
 
 const win = Dimensions.get('window');
 function Intro() {
+  const Navigation = useNavigation();
+  const Navigate = Navigation.replace;
   return (
     <View style={styles.container}>
       <Text
@@ -37,11 +41,15 @@ function Intro() {
         source={require('../../assets/Intro.png')}
       />
       <View style={{marginTop: win.height / 10}}>
-        <PrimaryBtn BtnText={'Get Started'} />
+        <PrimaryBtn
+          BtnText={'Get Started'}
+          onclick={() => Navigate(Routes.Register)}
+        />
         <PrimaryBtn
           BtnText={'Already a User ? Login'}
           btncolor={'rgb(216,214,214)'}
           styling={{marginTop: win.height / 55}}
+          onclick={() => Navigate(Routes.Login)}
         />
       </View>
     </View>

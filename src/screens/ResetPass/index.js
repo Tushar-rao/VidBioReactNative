@@ -4,7 +4,7 @@ import {TextInput} from 'react-native-gesture-handler';
 import PrimaryBtn from '../../components/YellowButton';
 
 const win = Dimensions.get('window');
-const App = () => {
+const Resetpass = () => {
   return (
     <View style={styles.container}>
       <Image
@@ -43,7 +43,7 @@ const App = () => {
 
       <PrimaryBtn
         borderradius={10}
-        BtnText={'Send Link'}
+        BtnText={'Save Changes'}
         styling={{alignSelf: 'center', marginVertical: 30}}
       />
     </View>
@@ -70,4 +70,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default Resetpass;

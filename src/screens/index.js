@@ -3,3 +3,8 @@ export {default as SearchScreen} from './SearchScreen';
 export {default as Profile} from './Profile';
 export {default as VideoLibraryFeed} from './VideoLibraryFeed';
 export {default as Login} from './Login';
+export {default as NovideoLink} from './NovideoLink';
+export {default as Register} from './Register';
+export {default as ForgetPass} from './ForgetPass';
+export {default as CheckMail} from './Checkmail';
+export {default as ResetPass} from './ResetPass';
