@@ -10,4 +10,6 @@ export const Routes = {
   ForgetPass: 'ForgetPass',
   CheckMail: 'CheckMail',
   ResetPass: 'ResetPass',
+  ProfileEdit: 'ProfileEdit',
+  VideoDetail: 'VideoDetail',
 };

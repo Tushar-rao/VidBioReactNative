@@ -1,4 +1,5 @@
-import React from 'react';
+import {useNavigation} from '@react-navigation/native';
+import React, {useRef} from 'react';
 import {
   StyleSheet,
   Text,
@@ -6,9 +7,18 @@ import {
   Image,
   FlatList,
   Dimensions,
+  TouchableOpacity,
 } from 'react-native';
-const win = Dimensions.get('window');
+import {Routes} from '../../RootNavigation/Routes';
+
+import RBSheet from 'react-native-raw-bottom-sheet';
+
 const Profile = () => {
+  const win = Dimensions.get('window');
+  const ref = useRef();
+
+  const Navigation = useNavigation();
+  const Navigate = Navigation.navigate;
   return (
     <View style={{flex: 1}}>
       <View
@@ -69,7 +79,8 @@ const Profile = () => {
               }}>
               Tom Cruise
             </Text>
-            <View
+            <TouchableOpacity
+              onPress={() => Navigate(Routes.ProfileEdit)}
               style={{
                 width: 200,
                 height: 45,
@@ -90,7 +101,7 @@ const Profile = () => {
                 }}>
                 Edit Profile
               </Text>
-            </View>
+            </TouchableOpacity>
           </View>
         </View>
         <View style={{width: '100%', height: 1, backgroundColor: 'grey'}} />
@@ -134,7 +145,23 @@ const Profile = () => {
         />
       </View>
 
-      <View
+      <RBSheet
+        ref={ref}
+        height={300}
+        openDuration={250}
+        closeOnDragDown={true}
+        closeOnPressMask={true}
+        customStyles={{
+          container: {
+            justifyContent: 'center',
+            alignItems: 'center',
+          },
+        }}>
+        <Text>This is the bottom sheet we want</Text>
+      </RBSheet>
+
+      <TouchableOpacity
+        onPress={() => ref.current.open()}
         style={{
           width: win.width / 5,
           height: win.height / 9.5,
@@ -143,8 +170,11 @@ const Profile = () => {
           bottom: win.height / 40,
           right: win.width / 14,
           borderRadius: 100,
-        }}
-      />
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+        <Text style={{fontSize: 60, color: 'black'}}>+</Text>
+      </TouchableOpacity>
     </View>
   );
 };

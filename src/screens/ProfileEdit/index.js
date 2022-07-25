@@ -10,7 +10,7 @@ import {
 const win = Dimensions.get('window');
 import PrimaryBtn from '../../components/YellowButton';
 
-const App = () => {
+const ProfileEdit = () => {
   return (
     <View style={styles.container}>
       <Text
@@ -78,4 +78,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default ProfileEdit;

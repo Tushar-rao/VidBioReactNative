@@ -8,3 +8,5 @@ export {default as Register} from './Register';
 export {default as ForgetPass} from './ForgetPass';
 export {default as CheckMail} from './Checkmail';
 export {default as ResetPass} from './ResetPass';
+export {default as ProfileEdit} from './ProfileEdit';
+export {default as VideoDetail} from './VideoDetail';

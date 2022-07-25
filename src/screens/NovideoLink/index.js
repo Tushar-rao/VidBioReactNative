@@ -1,10 +1,46 @@
-import React from 'react';
-import {StyleSheet, Text, View, Image} from 'react-native';
+import React, {useRef} from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Dimensions,
+  TouchableOpacity,
+} from 'react-native';
 import {AuthContext} from '../../components/AuthContext';
 import PrimaryBtn from '../../components/YellowButton';
 
+import RBSheet from 'react-native-raw-bottom-sheet';
+import BottomSheetTab from '../../components/BottomSheetTab';
+import {useNavigation} from '@react-navigation/native';
+import {Routes} from '../../RootNavigation/Routes';
+
 const NoVideoLink = () => {
+  const win = Dimensions.get('window');
+  const ref = useRef();
   const {logout} = React.useContext(AuthContext);
+
+  const Navigation = useNavigation();
+  const Navigate = Navigation.navigate;
+
+  const Sheetcomponent = () => {
+    return (
+      <View style={{flexDirection: 'column', width: '100%'}}>
+        <Text style={{fontSize: 16, color: 'black', marginLeft: 20}}>
+          VideoLink Type
+        </Text>
+        <BottomSheetTab
+          onclick={() => Navigate(Routes.VideoDetail)}
+          Tabtext={'Videolink with single video'}
+        />
+        <BottomSheetTab
+          onclick={() => {}}
+          Tabtext={'Videolink with multiple video'}
+        />
+      </View>
+    );
+  };
+
   return (
     <View style={{flex: 1}}>
       <View
@@ -51,6 +87,31 @@ const NoVideoLink = () => {
           onclick={() => logout()}
         />
       </View>
+      <RBSheet
+        ref={ref}
+        height={win.height / 3.5}
+        openDuration={250}
+        closeOnDragDown={true}
+        closeOnPressMask={true}
+        customStyles={{}}>
+        <Sheetcomponent />
+      </RBSheet>
+
+      <TouchableOpacity
+        onPress={() => ref.current.open()}
+        style={{
+          width: win.width / 5,
+          height: win.height / 9.5,
+          backgroundColor: 'rgb(253,188,32)',
+          position: 'absolute',
+          bottom: win.height / 40,
+          right: win.width / 14,
+          borderRadius: 100,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+        <Text style={{fontSize: 60, color: 'black'}}>+</Text>
+      </TouchableOpacity>
     </View>
   );
 };

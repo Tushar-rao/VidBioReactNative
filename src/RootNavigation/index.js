@@ -117,6 +117,10 @@ const HomeStackScreen = ({navigation}) => {
   return (
     <HomeStack.Navigator screenOptions={{headerShown: false}}>
       <HomeStack.Screen name={Routes.Home} component={Screens.NovideoLink} />
+      <HomeStack.Screen
+        name={Routes.VideoDetail}
+        component={Screens.VideoDetail}
+      />
     </HomeStack.Navigator>
   );
 };
@@ -143,6 +147,10 @@ const ProfileScreen = ({navigation}) => {
   return (
     <Profile.Navigator screenOptions={{headerShown: false}}>
       <Profile.Screen name={Routes.Profile} component={Screens.Profile} />
+      <Profile.Screen
+        name={Routes.ProfileEdit}
+        component={Screens.ProfileEdit}
+      />
     </Profile.Navigator>
   );
 };
