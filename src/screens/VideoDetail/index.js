@@ -1,9 +1,9 @@
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import {
   StyleSheet,
   Text,
   View,
-  Image,
+  ToastAndroid,
   TextInput,
   Dimensions,
   TouchableOpacity,
@@ -17,11 +17,68 @@ import {Routes} from '../../RootNavigation/Routes';
 import PrimaryBtn from '../../components/YellowButton';
 
 import * as ImagePicker from 'react-native-image-picker';
+import {BASE_URL} from '../../components/config';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const VideoDetail = () => {
   const ref = useRef();
+
+  //for navigation
   const Navigation = useNavigation();
   const Navigate = Navigation.navigate;
 
+  //constents for our api
+  const [name, setname] = useState('');
+  const [description, setdescription] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  //fething our api
+  const createpage = () => {
+    setLoading(true);
+    async function getUserToken() {
+      return await AsyncStorage.getItem('userInfo');
+    }
+
+    if (name == '') {
+      ToastAndroid.show('Please Fill Your Name', ToastAndroid.SHORT);
+
+      setLoading(false);
+    } else if (description == '') {
+      ToastAndroid.show('Please Enter Description', ToastAndroid.SHORT);
+
+      setLoading(false);
+    } else {
+      getUserToken().then(userToken => {
+        const requestOptions = {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            token: userToken.replace('"', '').replace('"', ''),
+          },
+          body: JSON.stringify({
+            name: name,
+            description: description,
+          }),
+        };
+        fetch(`${BASE_URL}/page/create`, requestOptions)
+          .then(res => res.json())
+          .then(res => {
+            console.log(res);
+            console.log(userToken);
+            setLoading(false);
+            ref.current.open();
+          })
+          .catch(e => {
+            console.log(e);
+            ToastAndroid.show(`Server error ${e}`, ToastAndroid.SHORT);
+
+            setLoading(false);
+          });
+      });
+    }
+  };
+
+  //our bottom sheet components
   const Sheetcomponent = () => {
     return (
       <View style={{flexDirection: 'column', width: '100%'}}>
@@ -44,6 +101,7 @@ const VideoDetail = () => {
     );
   };
 
+  //video picker
   const recordVideo = async () => {
     ImagePicker.launchCamera(
       {mediaType: 'video', includeBase64: true},
@@ -61,6 +119,7 @@ const VideoDetail = () => {
     );
   };
 
+  //UI SECTION
   return (
     <View style={styles.container}>
       <Text
@@ -76,15 +135,19 @@ const VideoDetail = () => {
 
       <View>
         <Text style={styles.txtinputheader}>Name</Text>
-        <TextInput style={styles.txtinput} />
+        <TextInput
+          style={styles.txtinput}
+          onChangeText={input => setname(input)}
+        />
         <Text style={styles.txtinputheader}>Description</Text>
         <TextInput
+          onChangeText={input => setdescription(input)}
           style={[styles.txtinput, {height: 120, textAlignVertical: 'top'}]}
         />
       </View>
 
       <TouchableOpacity
-        onPress={() => ref.current.open()}
+        onPress={() => createpage()}
         style={{
           width: win.width / 5,
           height: win.height / 9.5,
