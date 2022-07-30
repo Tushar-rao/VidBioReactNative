@@ -12,4 +12,6 @@ export const Routes = {
   ResetPass: 'ResetPass',
   ProfileEdit: 'ProfileEdit',
   VideoDetail: 'VideoDetail',
+  VideoUploadLoading: 'VideoUploadLoading',
+  VideoChannelSelect: 'VideoChannelSelect',
 };

@@ -121,6 +121,14 @@ const HomeStackScreen = ({navigation}) => {
         name={Routes.VideoDetail}
         component={Screens.VideoDetail}
       />
+      <HomeStack.Screen
+        name={Routes.VideoUploadLoading}
+        component={Screens.VideoUploadLoading}
+      />
+      <HomeStack.Screen
+        name={Routes.VideoChannelSelect}
+        component={Screens.VideoChannelSelect}
+      />
     </HomeStack.Navigator>
   );
 };

@@ -30,7 +30,10 @@ const NoVideoLink = () => {
           VideoLink Type
         </Text>
         <BottomSheetTab
-          onclick={() => Navigate(Routes.VideoDetail)}
+          onclick={() => {
+            ref.current.close();
+            Navigate(Routes.VideoDetail);
+          }}
           Tabtext={'Videolink with single video'}
         />
         <BottomSheetTab

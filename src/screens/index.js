@@ -10,3 +10,5 @@ export {default as CheckMail} from './Checkmail';
 export {default as ResetPass} from './ResetPass';
 export {default as ProfileEdit} from './ProfileEdit';
 export {default as VideoDetail} from './VideoDetail';
+export {default as VideoUploadLoading} from './VideoUploadLoader';
+export {default as VideoChannelSelect} from './VideoChannelSelect';

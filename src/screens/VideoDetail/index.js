@@ -86,11 +86,17 @@ const VideoDetail = () => {
           VideoLink Type
         </Text>
         <BottomSheetTab
-          onclick={() => recordVideo()}
+          onclick={() => {
+            ref.current.close();
+            recordVideo();
+          }}
           Tabtext={'Record Video'}
         />
         <BottomSheetTab
-          onclick={() => selectVideo()}
+          onclick={() => {
+            ref.current.close();
+            selectVideo();
+          }}
           Tabtext={'Upload From Gallery'}
         />
         <BottomSheetTab
@@ -106,15 +112,18 @@ const VideoDetail = () => {
     ImagePicker.launchCamera(
       {mediaType: 'video', includeBase64: true},
       response => {
-        console.log(response);
+        console.log(response, 'resres');
+        Navigate(Routes.VideoUploadLoading, {video: response});
       },
     );
   };
   const selectVideo = async () => {
     ImagePicker.launchImageLibrary(
-      {mediaType: 'video', includeBase64: true},
+      {mediaType: 'video/mp4', includeBase64: true},
       response => {
-        console.log(response);
+        console.log(response, 'resres');
+
+        Navigate(Routes.VideoUploadLoading, {video: response});
       },
     );
   };
@@ -130,7 +139,7 @@ const VideoDetail = () => {
           marginVertical: 40,
           marginTop: 100,
         }}>
-        Vidbio
+        Create Videolink
       </Text>
 
       <View>
