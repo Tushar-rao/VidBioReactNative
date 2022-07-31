@@ -95,8 +95,8 @@ const App = () => {
       </View>
       <View
         style={{
-          width: win.width / 5,
-          height: win.height / 9.5,
+          width: 70,
+          height: 70,
           backgroundColor: 'rgb(253,188,32)',
           position: 'absolute',
           bottom: win.height / 40,

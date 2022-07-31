@@ -15,7 +15,7 @@ import {faLinesLeaning} from '@fortawesome/free-solid-svg-icons/';
 
 const SearchScreen = () => {
   return (
-    <View style={{flex: 1}}>
+    <View style={{flex: 1, backgroundColor: 'white'}}>
       <View
         style={{
           flexDirection: 'row',
@@ -39,7 +39,6 @@ const SearchScreen = () => {
           <TextInput
             style={styles.input}
             placeholder="Search VideoLink Here"
-            // onChangeText={(searchString) => {this.setState({searchString})}}
             underlineColorAndroid="transparent"
           />
         </View>
@@ -90,6 +89,7 @@ const SearchScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+
     // justifyContent: 'center',
     alignItems: 'center',
   },

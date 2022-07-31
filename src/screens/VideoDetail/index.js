@@ -158,8 +158,8 @@ const VideoDetail = () => {
       <TouchableOpacity
         onPress={() => createpage()}
         style={{
-          width: win.width / 5,
-          height: win.height / 9.5,
+          width: 70,
+          height: 70,
           backgroundColor: 'rgb(253,188,32)',
           position: 'absolute',
           bottom: win.height / 40,
@@ -183,6 +183,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 20,
+    backgroundColor: 'white',
     // alignItems:"center"
   },
   txtinput: {

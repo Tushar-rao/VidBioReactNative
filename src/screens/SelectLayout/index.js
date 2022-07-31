@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {
   StyleSheet,
@@ -6,9 +7,13 @@ import {
   Image,
   Dimensions,
   FlatList,
+  TouchableOpacity,
 } from 'react-native';
+import {Routes} from '../../RootNavigation/Routes';
 const win = Dimensions.get('window');
-const App = () => {
+const SelectLayout = () => {
+  const Navigation = useNavigation();
+  const Navigate = Navigation.navigate;
   return (
     <View style={{flex: 1}}>
       <View
@@ -16,6 +21,8 @@ const App = () => {
           flexDirection: 'row',
           justifyContent: 'space-between',
           padding: 20,
+
+          backgroundColor: '#fff',
         }}>
         <Text
           style={{
@@ -47,6 +54,7 @@ const App = () => {
         </Text>
         <FlatList
           numColumns={2}
+          showsVerticalScrollIndicator={false}
           contentContainerStyle={{alignItems: 'center'}}
           data={[
             {},
@@ -83,17 +91,19 @@ const App = () => {
           }}
         />
 
-        <View
+        <TouchableOpacity
+          onPress={() => Navigate(Routes.VidCreated)}
           style={{
-            width: win.width / 5,
-            height: win.height / 9.5,
+            width: 70,
+            height: 70,
             backgroundColor: 'rgb(253,188,32)',
             position: 'absolute',
             bottom: win.height / 40,
             right: win.width / 14,
-            borderRadius: 100,
-          }}
-        />
+            borderRadius: 50,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}></TouchableOpacity>
       </View>
     </View>
   );
@@ -103,6 +113,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 20,
+    backgroundColor: '#fff',
   },
   textInput: {
     width: '95%',
@@ -139,4 +150,4 @@ const styles = StyleSheet.create({
   btntxt: {color: 'black', fontSize: win.width / 28},
 });
 
-export default App;
+export default SelectLayout;

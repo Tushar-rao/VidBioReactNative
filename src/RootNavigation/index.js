@@ -98,7 +98,7 @@ const MainStack = () => {
   return (
     <Stack.Navigator headerMode="none">
       {userInfo ? (
-        <Stack.Screen name={'TabStack'} component={BottomTabStack} />
+        <Stack.Screen name={'MainStack'} component={Stacks} />
       ) : (
         <Stack.Screen name={'AuthStack'} component={AuthStack} />
       )}
@@ -112,23 +112,34 @@ function RootNavigation() {
     </Stack.Navigator>
   );
 }
+function Stacks() {
+  return (
+    <Stack.Navigator headerMode="none">
+      <Stack.Screen name={'TabStack'} component={BottomTabStack} />
+      <Stack.Screen name={Routes.VideoDetail} component={Screens.VideoDetail} />
+      <Stack.Screen
+        name={Routes.VideoUploadLoading}
+        component={Screens.VideoUploadLoading}
+      />
+      <Stack.Screen
+        name={Routes.VideoChannelSelect}
+        component={Screens.VideoChannelSelect}
+      />
+      <Stack.Screen name={Routes.AddChannel} component={Screens.AddChannel} />
+      <Stack.Screen name={Routes.ChannelEdit} component={Screens.ChannelEdit} />
+      <Stack.Screen
+        name={Routes.SelectLayout}
+        component={Screens.SelectLayout}
+      />
+      <Stack.Screen name={Routes.VidCreated} component={Screens.VidCreated} />
+    </Stack.Navigator>
+  );
+}
 
 const HomeStackScreen = ({navigation}) => {
   return (
     <HomeStack.Navigator screenOptions={{headerShown: false}}>
       <HomeStack.Screen name={Routes.Home} component={Screens.NovideoLink} />
-      <HomeStack.Screen
-        name={Routes.VideoDetail}
-        component={Screens.VideoDetail}
-      />
-      <HomeStack.Screen
-        name={Routes.VideoUploadLoading}
-        component={Screens.VideoUploadLoading}
-      />
-      <HomeStack.Screen
-        name={Routes.VideoChannelSelect}
-        component={Screens.VideoChannelSelect}
-      />
     </HomeStack.Navigator>
   );
 };

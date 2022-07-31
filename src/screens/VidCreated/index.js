@@ -1,8 +1,13 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {StyleSheet, Text, View, Image, Dimensions} from 'react-native';
+import PrimaryBtn from '../../components/YellowButton';
+import {Routes} from '../../RootNavigation/Routes';
 
 const win = Dimensions.get('window');
-const App = () => {
+const VidCreated = () => {
+  const Navigation = useNavigation();
+  const Navigate = Navigation.navigate;
   return (
     <View style={styles.container}>
       <Text
@@ -36,12 +41,18 @@ const App = () => {
         source={require('../../assets/pic1.png')}
       />
       <View style={{marginTop: win.height / 10}}>
-        <View style={styles.txtbtn}>
-          <Text style={styles.btntxt}>Copy Link</Text>
-        </View>
-        <View style={styles.greytxtbtn}>
-          <Text style={styles.btntxt}>Go To HomePage</Text>
-        </View>
+        <PrimaryBtn
+          BtnText={'Copy Link'}
+          styling={{alignSelf: 'center'}}
+          onclick={() => console.log('Copy Link')}
+        />
+
+        <PrimaryBtn
+          BtnText={'Go To HomePage'}
+          btncolor={'rgb(216,214,214)'}
+          styling={{marginTop: win.height / 55, alignSelf: 'center'}}
+          onclick={() => Navigate('TabStack')}
+        />
       </View>
     </View>
   );
@@ -51,25 +62,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 20,
+    backgroundColor: '#fff',
   },
-  txtbtn: {
-    width: '95%',
-    height: win.height / 16,
-    borderRadius: 100,
-    backgroundColor: 'rgb(253,188,32)',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  greytxtbtn: {
-    width: '95%',
-    height: win.height / 16,
-    borderRadius: 100,
-    backgroundColor: 'rgb(216,214,214)',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: win.height / 55,
-  },
-  btntxt: {color: 'black', fontSize: win.width / 28},
 });
 
-export default App;
+export default VidCreated;

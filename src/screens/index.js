@@ -12,3 +12,7 @@ export {default as ProfileEdit} from './ProfileEdit';
 export {default as VideoDetail} from './VideoDetail';
 export {default as VideoUploadLoading} from './VideoUploadLoader';
 export {default as VideoChannelSelect} from './VideoChannelSelect';
+export {default as AddChannel} from './AddChannel';
+export {default as ChannelEdit} from './ChannelEdit';
+export {default as SelectLayout} from './SelectLayout';
+export {default as VidCreated} from './VidCreated';

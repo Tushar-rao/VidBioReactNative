@@ -45,7 +45,7 @@ const NoVideoLink = () => {
   };
 
   return (
-    <View style={{flex: 1}}>
+    <View style={{flex: 1, backgroundColor: 'white'}}>
       <View
         style={{
           flexDirection: 'row',
@@ -103,8 +103,8 @@ const NoVideoLink = () => {
       <TouchableOpacity
         onPress={() => ref.current.open()}
         style={{
-          width: win.width / 5,
-          height: win.height / 9.5,
+          width: 70,
+          height: 70,
           backgroundColor: 'rgb(253,188,32)',
           position: 'absolute',
           bottom: win.height / 40,

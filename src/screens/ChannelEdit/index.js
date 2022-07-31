@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {
   StyleSheet,
@@ -6,9 +7,14 @@ import {
   Image,
   Dimensions,
   TextInput,
+  TouchableOpacity,
 } from 'react-native';
+import {Routes} from '../../RootNavigation/Routes';
 const win = Dimensions.get('window');
-const App = () => {
+const ChannelEdit = () => {
+  const Navigation = useNavigation();
+  const Navigate = Navigation.navigate;
+
   return (
     <View style={styles.container}>
       <Text style={{fontSize: 24, color: 'black', marginTop: 50}}>
@@ -101,14 +107,29 @@ const App = () => {
         <Text style={styles.commontxt}>Phone Number</Text>
         <TextInput style={styles.textInput} />
       </View>
-      <View style={{marginTop: win.height / 20}}>
+      {/* <View style={{marginTop: win.height / 20}}>
         <View style={styles.txtbtn}>
           <Text style={styles.btntxt}>Save Changes</Text>
         </View>
         <View style={styles.greytxtbtn}>
           <Text style={styles.btntxt}>Remove Channel</Text>
         </View>
-      </View>
+      </View> */}
+      <TouchableOpacity
+        onPress={() => Navigate(Routes.SelectLayout)}
+        style={{
+          width: 70,
+          height: 70,
+          backgroundColor: 'rgb(253,188,32)',
+          position: 'absolute',
+          bottom: win.height / 40,
+          right: win.width / 14,
+          borderRadius: 50,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+        <Text style={{fontSize: 60, color: 'black'}}>-</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -117,6 +138,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 20,
+    backgroundColor: '#fff',
   },
   textInput: {
     width: '95%',
@@ -153,4 +175,4 @@ const styles = StyleSheet.create({
   btntxt: {color: 'black', fontSize: win.width / 28},
 });
 
-export default App;
+export default ChannelEdit;

@@ -14,4 +14,8 @@ export const Routes = {
   VideoDetail: 'VideoDetail',
   VideoUploadLoading: 'VideoUploadLoading',
   VideoChannelSelect: 'VideoChannelSelect',
+  AddChannel: 'AddChannel',
+  ChannelEdit: 'ChannelEdit',
+  SelectLayout: 'SelectLayout',
+  VidCreated: 'VidCreated',
 };

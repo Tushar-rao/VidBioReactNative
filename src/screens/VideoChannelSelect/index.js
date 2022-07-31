@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {
   StyleSheet,
@@ -9,16 +10,22 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Video from 'react-native-video';
+import {Routes} from '../../RootNavigation/Routes';
 const win = Dimensions.get('window');
 
 const VideoChannelSelect = ({route}) => {
+  //for navigation
+  const Navigation = useNavigation();
+  const Navigate = Navigation.navigate;
+
   return (
-    <View style={{flex: 1}}>
+    <View style={{flex: 1, backgroundColor: 'white'}}>
       <View
         style={{
           flexDirection: 'column',
           justifyContent: 'space-between',
           padding: 20,
+          backgroundColor: 'white',
         }}>
         <Text
           style={{
@@ -109,7 +116,7 @@ const VideoChannelSelect = ({route}) => {
           Channel Selected
         </Text>
         <TouchableOpacity
-          onPress={() => console.log('Pressed')}
+          onPress={() => Navigate(Routes.AddChannel)}
           style={{
             width: win.width / 2.5,
             height: 45,
@@ -134,8 +141,8 @@ const VideoChannelSelect = ({route}) => {
 
       <View
         style={{
-          width: win.width / 5,
-          height: win.height / 9.5,
+          width: 70,
+          height: 70,
           backgroundColor: 'rgb(253,188,32)',
           position: 'absolute',
           bottom: win.height / 40,
@@ -151,6 +158,7 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 10,
     flex: 1,
+    backgroundColor: 'white',
   },
 });
 
